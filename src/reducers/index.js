@@ -8,7 +8,6 @@ const initialState = {
 export default function reduxSagaReducer(state = initialState, action) {
    switch (action.type) {
        case REQUEST_NPM_MODULE: {
-           console.log('in the reducer')
            return {
                ...state,
                moduleName: action.moduleName,
