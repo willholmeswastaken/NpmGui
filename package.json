@@ -11,6 +11,8 @@
     "precommit": "pretty-quick --staged"
   },
   "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-react": "^7.12.4",
     "prettier": "1.16.4",
