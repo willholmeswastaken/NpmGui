@@ -1,7 +1,7 @@
 import { REQUEST_NPM_MODULE, REQUEST_NPM_MODULE_SUCCESS, REQUEST_NPM_MODULE_FAILURE } from "../actions";
 
 const initialState = {
-   module: {},
+   module: null,
    loading: false,
    error: ''
 };

@@ -18,7 +18,8 @@ const setup = propOverrides => {
     return {
         props,
         wrapper,
-        simulateInput: () => wrapper.find('TextField').simulate('change', { target: { value: 'testnew' } })
+        simulateInput: () => wrapper.find('TextField').simulate('change', { target: { value: 'testnew' } }),
+        simulateEnter: () => wrapper.find('TextField').simulate('keypress', { key: 'Enter' })
     }
 }
 
@@ -27,5 +28,11 @@ describe('<Finder />', () => {
         const { props, simulateInput } = setup()
         simulateInput()
         expect(props.onModuleNameChange).toHaveBeenCalled()
+    })
+
+    it('successfully triggers onrequestsubmit when enter pressed', () => {
+        const { props, simulateEnter } = setup()
+        simulateEnter()
+        expect(props.onRequestModule).toHaveBeenCalled()
     })
 })
