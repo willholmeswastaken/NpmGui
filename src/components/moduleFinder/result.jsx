@@ -3,28 +3,40 @@ import Button from '@material-ui/core/Button'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
+import Links from './links'
 
 const Result = ({ module, open, onResultClose, isFetching }) => (
   <React.Fragment>
     <Dialog
       open={open}
+      fullWidth
       onClose={onResultClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description">
-      <DialogTitle id="alert-dialog-title">{isFetching ? 'Fetching module...' : module.name}</DialogTitle>
+      <DialogTitle id="alert-dialog-title">
+        {isFetching
+          ? 'Fetching module...'
+          : module !== null && `Package: ${module.name} - v${module.version}`}
+      </DialogTitle>
       <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          {isFetching ? 'Fetching module description...': module.description}
-        </DialogContentText>
+        {isFetching
+          ? 'Fetching module description...'
+          : module !== null && (
+              <div>
+                <h5>Published by:</h5>
+                <p>
+                  {module.publisher.username} ({module.publisher.email})
+                </p>
+                <h5>Description:</h5>
+                <p>{module.description}</p>
+                <Links links={module.links} />
+              </div>
+            )}
       </DialogContent>
       <DialogActions>
         <Button onClick={onResultClose} color="primary">
-          Thanks
-        </Button>
-        <Button onClick={onResultClose} color="primary" autoFocus>
-          GitHub Repository
+          Close
         </Button>
       </DialogActions>
     </Dialog>
