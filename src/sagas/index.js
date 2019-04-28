@@ -2,8 +2,7 @@ import { put, takeLatest } from 'redux-saga/effects'
 import { REQUEST_NPM_MODULE, REQUEST_NPM_MODULE_SUCCESS, REQUEST_NPM_MODULE_FAILURE } from "../actions";
 import { getModule, fetchAsync } from '../api'
 
-function* fetchModule( action ) {
-   const { moduleName } = action;
+function* fetchModule({ moduleName }) {
    try {
        const result = yield fetchAsync(getModule,[moduleName]);
        if(result.results.length === 0) {

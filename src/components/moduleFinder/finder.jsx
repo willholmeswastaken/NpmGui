@@ -18,6 +18,11 @@ const Finder = ({
       style={{ paddingLeft: 10, paddingRight: 10 }}
       margin="normal"
       value={moduleName}
+      onKeyPress={evt => {
+        if(evt.key === 'Enter'){
+          onRequestModule(moduleName)
+        }
+      }}
       onChange={evt => onModuleNameChange(evt.target.value)}
       InputLabelProps={{
         shrink: true

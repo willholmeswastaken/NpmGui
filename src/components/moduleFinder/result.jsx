@@ -5,7 +5,6 @@ import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Result = ({ module, open, onResultClose, isFetching }) => (
   <React.Fragment>
@@ -14,18 +13,18 @@ const Result = ({ module, open, onResultClose, isFetching }) => (
       onClose={onResultClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description">
-      <DialogTitle id="alert-dialog-title">{module.name}</DialogTitle>
+      <DialogTitle id="alert-dialog-title">{isFetching ? 'Fetching module...' : module.name}</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          {isFetching ? <CircularProgress /> : module.description}
+          {isFetching ? 'Fetching module description...': module.description}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button onClick={onResultClose} color="primary">
-          Disagree
+          Thanks
         </Button>
         <Button onClick={onResultClose} color="primary" autoFocus>
-          Agree
+          GitHub Repository
         </Button>
       </DialogActions>
     </Dialog>
