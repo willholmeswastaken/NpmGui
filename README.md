@@ -4,7 +4,7 @@
 ## 📱NPMGUI - A cleaner way to find npm modules
 
 * Proudly integrating with [https://github.com/npms-io](https://github.com/npms-io) 🤖 
-* Demo (Coming soon) 🙌
+* Demo https://npmgui.netlify.com/ 🙌
 
 ## Installation
 
